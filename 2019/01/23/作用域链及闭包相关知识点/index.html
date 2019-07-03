@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="生活不易，请继续努力！">
-<meta name="keywords" content="前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="vivien">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作用域链及闭包相关知识点">
+<meta property="og:url" content="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="生活不易，请继续努力！">
+<meta property="og:description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-03T13:51:51.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vivien">
-<meta name="twitter:description" content="生活不易，请继续努力！">
+<meta name="twitter:title" content="作用域链及闭包相关知识点">
+<meta name="twitter:description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/">
 
 
 
 
 
-  <title>vivien</title>
+  <title>作用域链及闭包相关知识点 | vivien</title>
   
 
 
@@ -144,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/23/作用域链及闭包相关知识点/" itemprop="url">作用域链及闭包相关知识点</a></h1>
+          <h1 class="post-title" itemprop="name headline">作用域链及闭包相关知识点</h1>
         
 
         <div class="post-meta">
@@ -346,7 +344,15 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
+          
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_value_page_pv"></span>次阅读
           
 
           
@@ -366,19 +372,45 @@
       
 
       
-        
-          <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>定义： 红宝书（p178）对于闭包的定义为：<font color="orange">闭包是指有权访问另外一个函数作用域中的变量的函数</font>。<br>       MDN对于闭包的定义为： <fnt color="orange">闭包是指那些能够访问自由变量的函数。<br>其中，<font color="orange">自由变量</font>指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。<br>总结就是包括下面两点：</fnt></p>
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>定义： 红宝书（p178）对于闭包的定义为：<font color="orange">闭包是指有权访问另外一个函数作用域中的变量的函数</font>。<br>       MDN对于闭包的定义为： <fnt color="orange">闭包是指那些能够访问自由变量的函数。<br>其中，<font color="orange">自由变量</font>指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。<br>总结就是包括下面两点：</fnt></p>
 <ul>
 <li>是一个函数（比如，内部函数从父函数中返回）</li>
-<li>能访问上级函数作用域中的变量（哪怕上级函数上下文已经销毁）</li></ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/作用域链及闭包相关知识点/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<li>能访问上级函数作用域中的变量（哪怕上级函数上下文已经销毁）<a id="more"></a>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2>JavaScript中有一个执行上下文的概念，它定义了变量或函数有权访问的其他数据，决定了他们各自的行文。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。<br><b>作用域链：</b>当访问一个变量时，解释器会首先在当前作用域查找标识符，如果没有找到，就去父作用域链找，知道找到该变量或者不再父作用域中，这就是作用域链。</li>
+</ul>
+<p>作用域链和原型链查找时的区别：如果去查找一个普通对象的属性，但是在当前对象和其原型中都找不到时，会返回undefined;但查找的属性在作用域中不存在时就会抛出ReferenceError.</p>
+<p>作用域链的顶端是全局对象，在全局环境中定义的变量就会绑定到全局对象中。</p>
+<h2 id="从作用域链理解闭包"><a href="#从作用域链理解闭包" class="headerlink" title="从作用域链理解闭包"></a>从作用域链理解闭包</h2><p>用一个简单的例子来理解：</p>
+<pre>
+  var scope = "global scope";
+  function checkscope () {
+      var scope = "local scope";
+      function f() {
+          return scope;
+      }
+      return f;
+  }
+
+  var foo = checkscope();  //foo指向函数f
+  foo();       //调用函数f()
+</pre>
+<p>上面的代码执行过程如下：</p>
+<ol>
+<li>进入全局代码，创建全局执行上下文，全局执行上下文<font color="orange">压入执行上下文栈</font></li>
+<li>全局执行<font color="orange">上下文初始化</font></li>
+<li>执行checkscope函数，创建checkscope函数执行上下文，checkscope执行上下文被压入执行上下文栈</li>
+<li>checkscope执行<font color="orange">上下文初始化</font>,创建变量对象、作用域链、this等</li>
+<li>checkscope执行函数执行完毕，checkscope执行上下文从执行上下文栈中弹出</li>
+<li>执行f函数，创建f函数执行上下文，f执行上下文被压入执行上下文栈</li>
+<li>f执行<font color="orange">上下文初始化</font>，创建变量对象、作用域链、this等</li>
+<li>f函数执行完毕，f函数上下文从执行上下文栈中弹出<br>这里有一个疑问，函数f执行的时候，checkscope函数上下文已经销毁了，那函数f是如何获取到scope变量的呢？<br>其实，这是因为函数f执行上下文维护了一个作用域链，会指向指向checkscope作用域，作用域链是一个数组，结构如下：<pre>
+fContext = {
+ Scope: [AO, checkscopeContext.AO, globalContext.VO],
+}
+</pre>
+所以指向关系是当前作用域 –&gt; checkscope作用域 –&gt; 全局作用域，即使checkscopeContent被销毁了，但是JavaScript依然会让checkscopeContext.AO(活动对象)活在内存中，f函数依然可以通过f函数的作用域链找到，这就是闭包实现的关键。</li>
+</ol>
+
       
     </div>
     
@@ -390,320 +422,57 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    vivien
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/" title="作用域链及闭包相关知识点">http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/10/JavaScript之内存问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="vivien">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/user.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="vivien">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/10/JavaScript之内存问题/" itemprop="url">JavaScript之内存问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T15:17:28+08:00">
-                2019-01-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。</p>
-<h2 id="了解内存空间"><a href="#了解内存空间" class="headerlink" title="了解内存空间"></a>了解内存空间</h2><p>JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。</p>
-<h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p>栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。</p>
-<h3 id="堆数据结构"><a href="#堆数据结构" class="headerlink" title="堆数据结构"></a>堆数据结构</h3><p>堆数据结构是一种树状结构。它的存取数据的方式与书架和书非常相似。我们只需要知道书的名字就好了，并不需要把上面的书拿出来。JSON格式的数据中，我们存储的key-value可以是无序的，因为顺序的不同并不影响我们的使用，我们只关心书的名字。</p>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是一种先进先出（FIFO）的数据格式，这是事件循环的基础结构。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/10/JavaScript之内存问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/10/JavaScript之内存问题/" rel="next" title="JavaScript之内存问题">
+                <i class="fa fa-chevron-left"></i> JavaScript之内存问题
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="vivien">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/user.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="vivien">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/01/前端性能优化之JavaScript/" itemprop="url">前端性能优化之JavaScript</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T13:08:34+08:00">
-                2019-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。</p>
-<h2 id="加载和运行"><a href="#加载和运行" class="headerlink" title="加载和运行"></a>加载和运行</h2><h3 id="脚本位置"><a href="#脚本位置" class="headerlink" title="脚本位置"></a>脚本位置</h3><p>将所有<code>script</code>标签放在页面底部，紧靠<code>&lt;/body&gt;</code>上方，以保证页面脚本运行之前完成解析。</p>
-<h3 id="defer-amp-async"><a href="#defer-amp-async" class="headerlink" title="defer &amp; async"></a>defer &amp; async</h3><p>常规<code>script</code>脚本浏览器会立即加载并执行，异步加载使用<code>async</code> 和 <code>defer</code>。二者区别在于<code>async</code>为无序，<code>defer</code>会异步根据脚本位置先后一次加载执行。</p>
-<h3 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h3><p>无论在何处启动下载，问价的下载和运行都不会阻塞其他页面处理过程。你可以将这些代码放在<code>head</code>部分而不会对其余部分的页面代码造成影响（除了用于下载文件的<code>http</code>连接）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/01/前端性能优化之JavaScript/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -713,10 +482,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -724,6 +494,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -744,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -807,6 +590,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从作用域链理解闭包"><span class="nav-text">从作用域链理解闭包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -982,6 +781,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
