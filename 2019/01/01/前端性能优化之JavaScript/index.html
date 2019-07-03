@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="vivien">
 <meta property="og:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T06:44:02.519Z">
+<meta property="og:updated_time" content="2019-07-03T08:42:39.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化之JavaScript">
 <meta name="twitter:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -397,16 +397,20 @@
 <ul>
 <li>访问和修改 DOM 元素</li>
 <li>修改 DOM 元素的样式，造成重绘和重新排版</li>
-<li>通过 DOM 事件处理用户响应<h3 id="DOM-访问和修改"><a href="#DOM-访问和修改" class="headerlink" title="DOM 访问和修改"></a>DOM 访问和修改</h3>访问或修改元素最坏的情况是使用循环执行此操作，特别是在 HTML 集合中使用循环。<code>
+<li>通过 DOM 事件处理用户响应<h3 id="DOM-访问和修改"><a href="#DOM-访问和修改" class="headerlink" title="DOM 访问和修改"></a>DOM 访问和修改</h3>访问或修改元素最坏的情况是使用循环执行此操作，特别是在 HTML 集合中使用循环。<p>
+<code>
 function innerHtmlLoop () {
     for(var i = 0; i < 100; i++) {
         document.getElementById('box').innerHtml += "a";
     }
 }
 </code>
+</p>
 此函数在循环中更新页面内容。这段代码的问题是，在每次循环单元中都对 DOM 元素访问两次：一次
 读取 innerHTML 属性能容，另一次写入它。
 优化如下：
+<p>
+<code>
 function innerHtmlLoop () {
   var content = '';
   for(var i = 0; i < 100; i++) {
@@ -414,6 +418,8 @@ function innerHtmlLoop () {
   }
   document.getElementById('box').innerHtml += content;
 }
+</code>
+</p>
 <b>你访问 DOM 越多，代码的执行速度就越慢。因此，一般经验法则是：轻轻地触摸 DOM，并尽量保持在 ECMAScript 范围内。</b>
 ### 节点克隆
 使用 DOM 方法更新页面内容的另一个途径是克隆已有 `DOM` 元素，而不是创建新的——即使用 `element.cloneNode()`（`element` 是一个已存在的节点）代替 `document.createElement()`;
@@ -474,6 +480,22 @@ function innerHtmlLoop () {
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/10/JavaScript之内存问题/" rel="prev" title="JavaScript之内存问题">
+                JavaScript之内存问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -549,7 +571,7 @@ function innerHtmlLoop () {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

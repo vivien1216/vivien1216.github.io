@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="生活不易，请继续努力！">
-<meta name="keywords" content="前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="vivien">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。 了解内存空间JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。 栈数据结构栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。 堆数据结构堆数据结构是一">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript之内存问题">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/JavaScript之内存问题/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="生活不易，请继续努力！">
+<meta property="og:description" content="了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。 了解内存空间JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。 栈数据结构栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。 堆数据结构堆数据结构是一">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-03T09:02:12.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vivien">
-<meta name="twitter:description" content="生活不易，请继续努力！">
+<meta name="twitter:title" content="JavaScript之内存问题">
+<meta name="twitter:description" content="了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。 了解内存空间JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。 栈数据结构栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。 堆数据结构堆数据结构是一">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/10/JavaScript之内存问题/">
 
 
 
 
 
-  <title>vivien</title>
+  <title>JavaScript之内存问题 | vivien</title>
   
 
 
@@ -144,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/10/JavaScript之内存问题/" itemprop="url">JavaScript之内存问题</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript之内存问题</h1>
         
 
         <div class="post-meta">
@@ -346,7 +344,15 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
+          
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_value_page_pv"></span>次阅读
           
 
           
@@ -366,9 +372,7 @@
       
 
       
-        
-          
-            <p>了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。</p>
+        <p>了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。</p>
 <h2 id="了解内存空间"><a href="#了解内存空间" class="headerlink" title="了解内存空间"></a>了解内存空间</h2><p>JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。</p>
 <h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p>栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。</p>
 <h3 id="堆数据结构"><a href="#堆数据结构" class="headerlink" title="堆数据结构"></a>堆数据结构</h3><p>堆数据结构是一种树状结构。它的存取数据的方式与书架和书非常相似。我们只需要知道书的名字就好了，并不需要把上面的书拿出来。JSON格式的数据中，我们存储的key-value可以是无序的，因为顺序的不同并不影响我们的使用，我们只关心书的名字。</p>
@@ -402,8 +406,6 @@
 </ul>
 <h3 id="从内存来看，null和undefined本质的区别是什么？"><a href="#从内存来看，null和undefined本质的区别是什么？" class="headerlink" title="从内存来看，null和undefined本质的区别是什么？"></a>从内存来看，null和undefined本质的区别是什么？</h3><p>给一个全局变量赋值为null,相当于将这个变量的指针对象以及值清空，如果是给对象的属性赋值为null,或者局部变量赋值为null,相当于给这个属性分配了一块空的内存，然后值为null,JS会回收全局变量为null的对象。<br>给一个全局变量赋值为undefined,相当于将这个对象的值清空，但是这个对象依旧存在，如果是给对象的属性赋值为undefined,说明这个值为空。</p>
 
-          
-        
       
     </div>
     
@@ -415,168 +417,57 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    vivien
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/01/10/JavaScript之内存问题/" title="JavaScript之内存问题">http://yoursite.com/2019/01/10/JavaScript之内存问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="vivien">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/user.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="vivien">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/01/前端性能优化之JavaScript/" itemprop="url">前端性能优化之JavaScript</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T13:08:34+08:00">
-                2019-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。</p>
-<h2 id="加载和运行"><a href="#加载和运行" class="headerlink" title="加载和运行"></a>加载和运行</h2><h3 id="脚本位置"><a href="#脚本位置" class="headerlink" title="脚本位置"></a>脚本位置</h3><p>将所有<code>script</code>标签放在页面底部，紧靠<code>&lt;/body&gt;</code>上方，以保证页面脚本运行之前完成解析。</p>
-<h3 id="defer-amp-async"><a href="#defer-amp-async" class="headerlink" title="defer &amp; async"></a>defer &amp; async</h3><p>常规<code>script</code>脚本浏览器会立即加载并执行，异步加载使用<code>async</code> 和 <code>defer</code>。二者区别在于<code>async</code>为无序，<code>defer</code>会异步根据脚本位置先后一次加载执行。</p>
-<h3 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h3><p>无论在何处启动下载，问价的下载和运行都不会阻塞其他页面处理过程。你可以将这些代码放在<code>head</code>部分而不会对其余部分的页面代码造成影响（除了用于下载文件的<code>http</code>连接）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/01/前端性能优化之JavaScript/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/01/前端性能优化之JavaScript/" rel="next" title="前端性能优化之JavaScript">
+                <i class="fa fa-chevron-left"></i> 前端性能优化之JavaScript
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -586,10 +477,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -597,6 +489,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -617,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -680,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解内存空间"><span class="nav-text">了解内存空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈数据结构"><span class="nav-text">栈数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆数据结构"><span class="nav-text">堆数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-text">队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的存放"><span class="nav-text">变量的存放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存空间管理"><span class="nav-text">内存空间管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收算法"><span class="nav-text">垃圾回收算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-text">内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四种常见的JS内存泄漏"><span class="nav-text">四种常见的JS内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从内存来看，null和undefined本质的区别是什么？"><span class="nav-text">从内存来看，null和undefined本质的区别是什么？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -855,6 +776,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
