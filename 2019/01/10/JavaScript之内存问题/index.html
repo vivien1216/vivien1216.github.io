@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="vivien">
 <meta property="og:description" content="了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。 了解内存空间JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。 栈数据结构栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。 堆数据结构堆数据结构是一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T09:02:12.416Z">
+<meta property="og:updated_time" content="2019-07-03T09:04:31.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript之内存问题">
 <meta name="twitter:description" content="了解JavaScript内存问题对于理解JS闭包,Event Loop等有很大的帮助。接下来，就让我们来好好了解一下吧。 了解内存空间JS内存空间分为栈（stack）、堆(heap)、池（一般也归类于栈中）。其中栈存放变量，堆存放复杂对象，池存放常量，所以也叫常量池。 栈数据结构栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。 堆数据结构堆数据结构是一">
@@ -377,6 +377,7 @@
 <h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p>栈的结构是后进先出（LIFO），类似于我们将乒乓球放进一个盒子里，最后一个放入的会最先拿出来。</p>
 <h3 id="堆数据结构"><a href="#堆数据结构" class="headerlink" title="堆数据结构"></a>堆数据结构</h3><p>堆数据结构是一种树状结构。它的存取数据的方式与书架和书非常相似。我们只需要知道书的名字就好了，并不需要把上面的书拿出来。JSON格式的数据中，我们存储的key-value可以是无序的，因为顺序的不同并不影响我们的使用，我们只关心书的名字。</p>
 <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是一种先进先出（FIFO）的数据格式，这是事件循环的基础结构。</p>
+<a id="more"></a>
 <h3 id="变量的存放"><a href="#变量的存放" class="headerlink" title="变量的存放"></a>变量的存放</h3><p>由以上知识可以知道内存中有栈和堆，那么变量应该放在哪里呢？</p>
 <ol>
 <li>
