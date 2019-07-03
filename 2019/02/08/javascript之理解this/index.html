@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
+<meta name="description" content="一般来说，this的绑定规则有下面5种：  默认绑定（严格/非严格模式）  隐式绑定  显式绑定  new绑定  箭头函数绑定下面一一介绍 默认绑定独立函数调用，可以把默认绑定看作是无法应用其他规则时的默认规则，this指向全局对象。严格模式下，不能将全局对象用于默认绑定，this会绑定到undefined。只有函数运行在非严格模式下，默认绑定才能绑定到全局对象。在严格模式下调用函数则不影响默认绑">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化之JavaScript">
-<meta property="og:url" content="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/index.html">
+<meta property="og:title" content="javascript之理解this">
+<meta property="og:url" content="http://yoursite.com/2019/02/08/javascript之理解this/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
+<meta property="og:description" content="一般来说，this的绑定规则有下面5种：  默认绑定（严格/非严格模式）  隐式绑定  显式绑定  new绑定  箭头函数绑定下面一一介绍 默认绑定独立函数调用，可以把默认绑定看作是无法应用其他规则时的默认规则，this指向全局对象。严格模式下，不能将全局对象用于默认绑定，this会绑定到undefined。只有函数运行在非严格模式下，默认绑定才能绑定到全局对象。在严格模式下调用函数则不影响默认绑">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T09:08:07.811Z">
+<meta property="og:updated_time" content="2019-07-03T15:42:23.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化之JavaScript">
-<meta name="twitter:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
+<meta name="twitter:title" content="javascript之理解this">
+<meta name="twitter:description" content="一般来说，this的绑定规则有下面5种：  默认绑定（严格/非严格模式）  隐式绑定  显式绑定  new绑定  箭头函数绑定下面一一介绍 默认绑定独立函数调用，可以把默认绑定看作是无法应用其他规则时的默认规则，this指向全局对象。严格模式下，不能将全局对象用于默认绑定，this会绑定到undefined。只有函数运行在非严格模式下，默认绑定才能绑定到全局对象。在严格模式下调用函数则不影响默认绑">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/08/javascript之理解this/">
 
 
 
 
 
-  <title>前端性能优化之JavaScript | vivien</title>
+  <title>javascript之理解this | vivien</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/08/javascript之理解this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vivien">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化之JavaScript</h1>
+          <h1 class="post-title" itemprop="name headline">javascript之理解this</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T13:08:34+08:00">
-                2019-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-08T22:01:38+08:00">
+                2019-02-08
               </time>
             
 
@@ -372,71 +372,96 @@
       
 
       
-        <p>性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。</p>
-<h2 id="加载和运行"><a href="#加载和运行" class="headerlink" title="加载和运行"></a>加载和运行</h2><h3 id="脚本位置"><a href="#脚本位置" class="headerlink" title="脚本位置"></a>脚本位置</h3><p>将所有<code>script</code>标签放在页面底部，紧靠<code>&lt;/body&gt;</code>上方，以保证页面脚本运行之前完成解析。</p>
-<h3 id="defer-amp-async"><a href="#defer-amp-async" class="headerlink" title="defer &amp; async"></a>defer &amp; async</h3><p>常规<code>script</code>脚本浏览器会立即加载并执行，异步加载使用<code>async</code> 和 <code>defer</code>。二者区别在于<code>async</code>为无序，<code>defer</code>会异步根据脚本位置先后一次加载执行。</p>
-<h3 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h3><p>无论在何处启动下载，问价的下载和运行都不会阻塞其他页面处理过程。你可以将这些代码放在<code>head</code>部分而不会对其余部分的页面代码造成影响（除了用于下载文件的<code>http</code>连接）。</p>
-<a id="more"></a>
-<h2 id="数据访问"><a href="#数据访问" class="headerlink" title="数据访问"></a>数据访问</h2><p>数据存储在哪里，关系到代码运行期间数据被检索到的速度. 每一种数据存储位置都具有特定的读写操作负担。大多数情况下，对一个直接量和一个局部变量数据访问的性能差异是微不足道的。</p>
-<h3 id="在-JavaScript-中有四种基本的数据访问位置："><a href="#在-JavaScript-中有四种基本的数据访问位置：" class="headerlink" title="在 JavaScript 中有四种基本的数据访问位置："></a>在 JavaScript 中有四种基本的数据访问位置：</h3><ul>
-<li>直接量：直接量仅仅代表自己，而不存储于特定位置。 JavaScript 的直接量包括：字符串，数字，布尔值，对象，数组，函数，正则表达式，具有特殊意义的空值，以及未定义</li>
-<li>变量： 使用 var / let 关键字创建用于存储数据值</li>
-<li>数组项： 具有数字索引，存储一个 JavaScript 数组对象</li>
-<li>对象变量： 具有字符串索引，存储一个 JavaScript 对象<br>一般来说：<ol>
-<li>直接量与局部变量访问速度非常快，数组项和对象成员需要更长时间</li>
-<li>局部变量比域外变量访问速度快，因为它位于作用域链的第一个对象中。变量在作用域链的位置越深，访问所需要的时间越长。全局变量总是最慢的，因为它们总位于作用域链的最后一环。</li>
-<li>避免使用 with 表达式，因为它改变了运行期上下文的作用域链，谨慎对待 try-catch 表达式中 catch 子句，因为它具有同样的效果</li>
-<li>嵌套对象成员会造成重大性能影响，尽量少用</li>
-<li>属性在原型链中的位置越深，访问速度越慢</li>
-<li>将对象成员、数组项、域外变量存入局部变量能提高 js 代码的性能</li>
-</ol>
-
-</li>
-</ul>
-<h2 id="dom编程"><a href="#dom编程" class="headerlink" title="dom编程"></a>dom编程</h2><p>一般来说，对DOM操作代价昂贵，所以现在流行框架一般使用虚拟DOM这一概念。通常处理以下三点：</p>
+        <p>一般来说，<code>this</code>的绑定规则有下面5种：</p>
 <ul>
-<li>访问和修改 DOM 元素</li>
-<li>修改 DOM 元素的样式，造成重绘和重新排版</li>
-<li>通过 DOM 事件处理用户响应<h3 id="DOM-访问和修改"><a href="#DOM-访问和修改" class="headerlink" title="DOM 访问和修改"></a>DOM 访问和修改</h3>访问或修改元素最坏的情况是使用循环执行此操作，特别是在 HTML 集合中使用循环。<p>
-<pre>
-function innerHtmlLoop () {
-    for(var i = 0; i < 100; i++) {
-        document.getElementById('box').innerHtml += "a";
-    }
-}
-</pre>
-</p>
-此函数在循环中更新页面内容。这段代码的问题是，在每次循环单元中都对 DOM 元素访问两次：一次
-读取 innerHTML 属性能容，另一次写入它。
-优化如下：
-<p>
-<pre>
-function innerHtmlLoop () {
-  var content = '';
-  for(var i = 0; i < 100; i++) {
-      content += "a";
-  }
-  document.getElementById('box').innerHtml += content;
-}
-</pre>
-</p>
-<b>你访问 DOM 越多，代码的执行速度就越慢。因此，一般经验法则是：轻轻地触摸 DOM，并尽量保持在 ECMAScript 范围内。</b>
-### 节点克隆
-使用 DOM 方法更新页面内容的另一个途径是克隆已有 `DOM` 元素，而不是创建新的——即使用 `element.cloneNode()`（`element` 是一个已存在的节点）代替 `document.createElement()`;
-### 布局和几何改变时发生重排版</li>
-<li>添加或删除可见的 DOM 元素</li>
-<li>元素位置改变</li>
-<li>元素尺寸改变（边距、填充、边框宽度、宽、高等属性）</li>
-<li>内容改变（文本或者图片被另一个不同尺寸的所替代）</li>
-<li>最初的页面渲染</li>
-<li>浏览器窗口尺寸改变<h3 id="减少重排次数"><a href="#减少重排次数" class="headerlink" title="减少重排次数"></a>减少重排次数</h3></li>
-<li>改变 display 属性，临时从文档上移除然后再恢复</li>
-<li>在文档之外创建并更新一个文档片段，然后将它进行附加</li>
-<li>先创建更新节点的副本，再操作副本，最后用副本更新老节点<!-- ## 算法与流程控制 -->
-<!-- ## 字符串和正则表达式 -->
+<li><p>默认绑定（严格/非严格模式）</p>
 </li>
-</ul>
+<li><p>隐式绑定</p>
+</li>
+<li><p>显式绑定</p>
+</li>
+<li><p>new绑定</p>
+</li>
+<li><p>箭头函数绑定<br>下面一一介绍</p>
+<h3 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h3><p><b style="color: orange;">独立函数调用</b>，可以把默认绑定看作是无法应用其他规则时的默认规则，this指向全局对象。<br><b style="color: orange;">严格模式下</b>，不能将全局对象用于默认绑定，this会绑定到undefined。只有函数运行在非严格模式下，默认绑定才能绑定到全局对象。在严格模式下调用函数则不影响默认绑定。</p>
+<a id="more"></a>
+<pre>
+function foo() { // 运行在严格模式下，this会绑定到undefined
+  "use strict";
 
+  console.log( this.a );
+}
+
+</pre></li>
+</ul>
+<p>var a = 2;</p>
+<p>// 调用<br>foo(); // TypeError: Cannot read property ‘a’ of undefined</p>
+<p>// ————————————–</p>
+<p>function foo() { // 运行<br>    console.log( this.a );<br>}</p>
+<p>var a = 2;</p>
+<p>(function() { // 严格模式下调用函数则不影响默认绑定<br>    “use strict”;</p>
+<pre><code>foo(); // 2</code></pre><p>})();<br></p>
+<h3 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h3><p>当函数引用有<font color="orange">上下文对象</font>时，隐式绑定规则会把函数中的this绑定到这个上下文对象。对象属性引用链中只有上一层或者说最后一层在调用中起作用。</p>
+<pre>
+function foo() {
+    console.log( this.a );
+}
+
+var obj = {
+    a: 2,
+    foo: foo
+};
+
+obj.foo(); // 2
+</pre>
+
+<h3 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h3><p>通过<code>call(..)</code>或者 <code>apply(..)</code>方法。第一个参数是一个对象，在调用函数时将这个对象绑定到<code>this</code>。因为直接指定<code>this</code>的绑定对象，称之为显示绑定。</p>
+<pre>
+ function foo() {
+    console.log( this.a );
+}
+
+var obj = {
+    a: 2
+};
+
+foo.call( obj ); // 2  调用foo时强制把foo的this绑定到obj上
+</pre>
+<p>把<code>null</code>或者<code>undefined</code>作为<code>this</code>的绑定对象传入<code>call</code>、<code>apply</code>或者<code>bind</code>，这些值在调用时会被忽略，实际应用的是默认规则。</p>
+<h3 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h3><p>使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。</p>
+<ul>
+<li>创建（或者说构造）一个新对象</li>
+<li>这个新对象会被执行[[Prototype]]连接</li>
+<li>这个新对象会绑定到函数调用的this</li>
+<li>如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象<pre>
+function foo(a) {
+  this.a = a;
+}
+
+</pre></li>
+</ul>
+<p>var bar = new foo(2); // bar和foo(..)调用中的this进行绑定<br>console.log( bar.a ); // 2<br></p>
+<h3 id="箭头函数绑定"><a href="#箭头函数绑定" class="headerlink" title="箭头函数绑定"></a>箭头函数绑定</h3><p>ES6新增一种特殊函数类型：箭头函数，箭头函数无法使用上述四条规则，而是根据外层（函数或者全局）作用域（词法作用域）来决定this。<br>foo()内部创建的箭头函数会捕获调用时foo()的this。由于foo()的this绑定到obj1，bar(引用箭头函数)的this也会绑定到obj1，箭头函数的绑定无法被修改(new也不行)。</p>
+<pre>
+function foo() {
+    // 返回一个箭头函数
+    return (a) => {
+        // this继承自foo()
+        console.log( this.a );
+    };
+}
+
+var obj1 = {
+    a: 2
+};
+
+var obj2 = {
+    a: 3
+}
+
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2，不是3！
+</pre>
       
     </div>
     
@@ -456,7 +481,7 @@ function innerHtmlLoop () {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/" title="前端性能优化之JavaScript">http://yoursite.com/2019/01/01/前端性能优化之JavaScript/</a>
+    <a href="http://yoursite.com/2019/02/08/javascript之理解this/" title="javascript之理解this">http://yoursite.com/2019/02/08/javascript之理解this/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -484,15 +509,15 @@ function innerHtmlLoop () {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/23/作用域链及闭包相关知识点/" rel="next" title="作用域链及闭包相关知识点">
+                <i class="fa fa-chevron-left"></i> 作用域链及闭包相关知识点
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/10/JavaScript之内存问题/" rel="prev" title="JavaScript之内存问题">
-                JavaScript之内存问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +651,7 @@ function innerHtmlLoop () {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载和运行"><span class="nav-text">加载和运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本位置"><span class="nav-text">脚本位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer-amp-async"><span class="nav-text">defer &amp; async</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态脚本"><span class="nav-text">动态脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据访问"><span class="nav-text">数据访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-JavaScript-中有四种基本的数据访问位置："><span class="nav-text">在 JavaScript 中有四种基本的数据访问位置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dom编程"><span class="nav-text">dom编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-访问和修改"><span class="nav-text">DOM 访问和修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排次数"><span class="nav-text">减少重排次数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认绑定"><span class="nav-text">默认绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式绑定"><span class="nav-text">隐式绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式绑定"><span class="nav-text">显式绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new绑定"><span class="nav-text">new绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数绑定"><span class="nav-text">箭头函数绑定</span></a></li></ol></div>
             
 
           </div>
