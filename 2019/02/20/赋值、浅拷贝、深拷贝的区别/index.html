@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="vivien">
 <meta property="og:description" content="话不多说，直接来了解它们的定义。 赋值定义： 赋值是将某一数值或对象赋给某个变量的过程。  基本数据类型：赋值，赋值之后两个变量互不影响 引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响对基本类型进行赋值操作，两个变量互不影响。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/02/20/赋值、浅拷贝、深拷贝的区别/shallow.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/02/20/赋值、浅拷贝、深拷贝的区别/deep.jpg">
-<meta property="og:updated_time" content="2019-07-04T14:36:54.167Z">
+<meta property="og:image" content="http://yoursite.com/.com//shallow.jpg">
+<meta property="og:image" content="http://yoursite.com/.com//deep.jpg">
+<meta property="og:updated_time" content="2019-07-04T14:51:47.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="赋值、浅拷贝、深拷贝的区别">
 <meta name="twitter:description" content="话不多说，直接来了解它们的定义。 赋值定义： 赋值是将某一数值或对象赋给某个变量的过程。  基本数据类型：赋值，赋值之后两个变量互不影响 引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响对基本类型进行赋值操作，两个变量互不影响。">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/20/赋值、浅拷贝、深拷贝的区别/shallow.jpg">
+<meta name="twitter:image" content="http://yoursite.com/.com//shallow.jpg">
 
 
 
@@ -419,7 +419,7 @@ console.log(b);
 // } 
 </pre>
 <p>但是，一般在开发中，并不希望改变变量 <code>a</code> 之后会影响到变量 <code>b</code>，这时就需要用到浅拷贝和深拷贝。</p>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>定义：创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。如图所示：<br><img src="//yoursite.com/2019/02/20/赋值、浅拷贝、深拷贝的区别/shallow.jpg" alt="shallow"><br>上图中，<code>SourceObject</code> 是原对象，其中包含基本类型属性 <code>field1</code> 和引用类型属性 <code>refObj</code>。浅拷贝之后基本类型数据  <code>field2</code> 和 <code>filed1</code> 是不同属性，互不影响。但引用类型 <code>refObj</code> 仍然是同一个，改变之后会对另一个对象产生影响。<br>简单来说可以理解为浅拷贝只解决了第一层的问题，拷贝第一层的<font color="orange">基本类型值</font>，以及第一层的<font color="orange">引用类型地址</font>。</p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>定义：创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。如图所示：<br><img src="/.com//shallow.jpg" alt="shallow"><br>上图中，<code>SourceObject</code> 是原对象，其中包含基本类型属性 <code>field1</code> 和引用类型属性 <code>refObj</code>。浅拷贝之后基本类型数据  <code>field2</code> 和 <code>filed1</code> 是不同属性，互不影响。但引用类型 <code>refObj</code> 仍然是同一个，改变之后会对另一个对象产生影响。<br>简单来说可以理解为浅拷贝只解决了第一层的问题，拷贝第一层的<font color="orange">基本类型值</font>，以及第一层的<font color="orange">引用类型地址</font>。</p>
 <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p><code>Object.assign()</code> 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。</p>
 <pre>
 let a = {
@@ -495,7 +495,7 @@ console.log(b);
 //  ["1", [4, 3]]
 </pre>
 
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>定义：深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。如同所示：<br><img src="//yoursite.com/2019/02/20/赋值、浅拷贝、深拷贝的区别/deep.jpg" alt="赋值、浅拷贝、深拷贝的区别"></p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>定义：深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。如同所示：<br><img src="/.com//deep.jpg" alt="赋值、浅拷贝、深拷贝的区别"></p>
 <h3 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h3><h4 id="JSON-parse-JSON-stringify-object"><a href="#JSON-parse-JSON-stringify-object" class="headerlink" title="JSON.parse(JSON.stringify(object))"></a>JSON.parse(JSON.stringify(object))</h4><pre>
 let a = {
     name: "qianduan",
