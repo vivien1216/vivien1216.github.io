@@ -88,8 +88,9 @@
 <meta property="og:description" content="Symbol属于构造函数吗？constructor 属性是只读吗？prototype 、[[Prototype]] 和 __proto__ 的区别、什么是原型链?为了解开这些问题，让我们来好好回顾一下构造函数、原型和原型链这些知识点。 构造函数构造函数本身就是一个函数，与普通函数没有任何区别，不过为了规范一般将其首字母大写。构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/.com//1.png">
+<meta property="og:image" content="http://yoursite.com/.com//2.png">
 <meta property="og:image" content="http://yoursite.com/.com//3.jpg">
-<meta property="og:updated_time" content="2019-07-06T08:52:10.686Z">
+<meta property="og:updated_time" content="2019-07-06T08:54:47.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重新认识构造函数、原型和原型链">
 <meta name="twitter:description" content="Symbol属于构造函数吗？constructor 属性是只读吗？prototype 、[[Prototype]] 和 __proto__ 的区别、什么是原型链?为了解开这些问题，让我们来好好回顾一下构造函数、原型和原型链这些知识点。 构造函数构造函数本身就是一个函数，与普通函数没有任何区别，不过为了规范一般将其首字母大写。构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直">
@@ -429,8 +430,7 @@ var p = new Parent();
 p.__proto__ === Parent.prototype
 // true
 </pre>
-<p>所以构造函数  Parent、Parent.prototype 和 p 的关系如下图。</p>
-
+<p>所以构造函数  Parent、Parent.prototype 和 p 的关系如下图。<br><img src="/.com//2.png" alt="2.png"></p>
 <h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>定义：每个对象拥有一个原型对象，通过 <code>__proto__</code> 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 <code>null</code>。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。<br>下图展示了原型链的运作机制。<br><img src="/.com//3.jpg" alt="3.jpg"></p>
 <h3 id="instanceof-原理及实现"><a href="#instanceof-原理及实现" class="headerlink" title="instanceof 原理及实现"></a>instanceof 原理及实现</h3><p><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链上。</p>
 <pre>
