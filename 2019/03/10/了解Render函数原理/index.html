@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,">
+  <meta name="keywords" content="Vue,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="习惯了使用vue,突然对react也产生了一些兴趣，再加上前段时间看了招聘信息，发现大多数中大型公司还是要求react技能。于是，快速的过了一遍react官网上的内容。虽说react和vue作为三大框架中之二，发现还是有不少共同点，比如都用了虚拟dom的一个思想。接下来，就来谈谈什么是虚拟Dom.">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="作用域链及闭包相关知识点">
-<meta property="og:url" content="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/index.html">
+<meta property="og:title" content="了解Render函数原理">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/了解Render函数原理/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
+<meta property="og:description" content="习惯了使用vue,突然对react也产生了一些兴趣，再加上前段时间看了招聘信息，发现大多数中大型公司还是要求react技能。于是，快速的过了一遍react官网上的内容。虽说react和vue作为三大框架中之二，发现还是有不少共同点，比如都用了虚拟dom的一个思想。接下来，就来谈谈什么是虚拟Dom.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T13:51:51.432Z">
+<meta property="og:updated_time" content="2019-07-21T14:57:01.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="作用域链及闭包相关知识点">
-<meta name="twitter:description" content="闭包定义： 红宝书（p178）对于闭包的定义为：闭包是指有权访问另外一个函数作用域中的变量的函数。       MDN对于闭包的定义为： 闭包是指那些能够访问自由变量的函数。其中，自由变量指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。总结就是包括下面两点：  是一个函数（比如，内部函数从父函数中返回） 能访问上级函数作用域中的变量">
+<meta name="twitter:title" content="了解Render函数原理">
+<meta name="twitter:description" content="习惯了使用vue,突然对react也产生了一些兴趣，再加上前段时间看了招聘信息，发现大多数中大型公司还是要求react技能。于是，快速的过了一遍react官网上的内容。虽说react和vue作为三大框架中之二，发现还是有不少共同点，比如都用了虚拟dom的一个思想。接下来，就来谈谈什么是虚拟Dom.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/了解Render函数原理/">
 
 
 
 
 
-  <title>作用域链及闭包相关知识点 | vivien</title>
+  <title>了解Render函数原理 | vivien</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/23/作用域链及闭包相关知识点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/了解Render函数原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vivien">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">作用域链及闭包相关知识点</h1>
+          <h1 class="post-title" itemprop="name headline">了解Render函数原理</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T20:52:30+08:00">
-                2019-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T17:07:56+08:00">
+                2019-03-10
               </time>
             
 
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -372,44 +372,10 @@
       
 
       
-        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>定义： 红宝书（p178）对于闭包的定义为：<font color="orange">闭包是指有权访问另外一个函数作用域中的变量的函数</font>。<br>       MDN对于闭包的定义为： <fnt color="orange">闭包是指那些能够访问自由变量的函数。<br>其中，<font color="orange">自由变量</font>指在函数中使用的，但既不是函数参数arguments也不是函数的局部变量的变量，其实就是另外一个函数作用中的变量。<br>总结就是包括下面两点：</fnt></p>
-<ul>
-<li>是一个函数（比如，内部函数从父函数中返回）</li>
-<li>能访问上级函数作用域中的变量（哪怕上级函数上下文已经销毁）<a id="more"></a>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2>JavaScript中有一个执行上下文的概念，它定义了变量或函数有权访问的其他数据，决定了他们各自的行文。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。<br><b>作用域链：</b>当访问一个变量时，解释器会首先在当前作用域查找标识符，如果没有找到，就去父作用域链找，知道找到该变量或者不再父作用域中，这就是作用域链。</li>
-</ul>
-<p>作用域链和原型链查找时的区别：如果去查找一个普通对象的属性，但是在当前对象和其原型中都找不到时，会返回undefined;但查找的属性在作用域中不存在时就会抛出ReferenceError.</p>
-<p>作用域链的顶端是全局对象，在全局环境中定义的变量就会绑定到全局对象中。</p>
-<h2 id="从作用域链理解闭包"><a href="#从作用域链理解闭包" class="headerlink" title="从作用域链理解闭包"></a>从作用域链理解闭包</h2><p>用一个简单的例子来理解：</p>
-<pre>
-  var scope = "global scope";
-  function checkscope () {
-      var scope = "local scope";
-      function f() {
-          return scope;
-      }
-      return f;
-  }
-
-  var foo = checkscope();  //foo指向函数f
-  foo();       //调用函数f()
-</pre>
-<p>上面的代码执行过程如下：</p>
-<ol>
-<li>进入全局代码，创建全局执行上下文，全局执行上下文<font color="orange">压入执行上下文栈</font></li>
-<li>全局执行<font color="orange">上下文初始化</font></li>
-<li>执行checkscope函数，创建checkscope函数执行上下文，checkscope执行上下文被压入执行上下文栈</li>
-<li>checkscope执行<font color="orange">上下文初始化</font>,创建变量对象、作用域链、this等</li>
-<li>checkscope执行函数执行完毕，checkscope执行上下文从执行上下文栈中弹出</li>
-<li>执行f函数，创建f函数执行上下文，f执行上下文被压入执行上下文栈</li>
-<li>f执行<font color="orange">上下文初始化</font>，创建变量对象、作用域链、this等</li>
-<li>f函数执行完毕，f函数上下文从执行上下文栈中弹出<br>这里有一个疑问，函数f执行的时候，checkscope函数上下文已经销毁了，那函数f是如何获取到scope变量的呢？<br>其实，这是因为函数f执行上下文维护了一个作用域链，会指向指向checkscope作用域，作用域链是一个数组，结构如下：<pre>
-fContext = {
- Scope: [AO, checkscopeContext.AO, globalContext.VO],
-}
-</pre>
-所以指向关系是当前作用域 –&gt; checkscope作用域 –&gt; 全局作用域，即使checkscopeContent被销毁了，但是JavaScript依然会让checkscopeContext.AO(活动对象)活在内存中，f函数依然可以通过f函数的作用域链找到，这就是闭包实现的关键。</li>
-</ol>
+        <p>习惯了使用vue,突然对react也产生了一些兴趣，再加上前段时间看了招聘信息，发现大多数中大型公司还是要求react技能。于是，快速的过了一遍react官网上的内容。虽说react和vue作为三大框架中之二，发现还是有不少共同点，比如都用了虚拟dom的一个思想。接下来，就来谈谈什么是虚拟Dom.</p>
+<a id="more"></a>
+<h3 id="Actural-Dom-vs-Virtual-Dom"><a href="#Actural-Dom-vs-Virtual-Dom" class="headerlink" title="Actural Dom vs Virtual Dom"></a>Actural Dom vs Virtual Dom</h3><p>Actural Dom 是通过document.createElement(‘div’)生成一个DOM节点，而Virtual Dom 则是通过vm.$createElement(div)生成了一个JS对象。vDOM对象有一个表示div的tag属性，有一个包含了所有可能特性的data属性，可能还有一个包含更多虚拟节点的children列表。<br>因为Virtual Dom的渲染逻辑和Actural Dom解耦了，所以有能力运行在非浏览器的环境中。</p>
+<h3 id="Render函数原理"><a href="#Render函数原理" class="headerlink" title="Render函数原理"></a>Render函数原理</h3><p>初始化阶段，通过render函数生成Virtual DOM，view根据Virtual Dom生成Actural DOM,因为render函数依赖于页面上的所有的数据data，并且这些数据是响应式的，所有的数据作为组件render函数的依赖。一旦这些数据有所改变，那么render函数会被重新调用。<br>在更新阶段，render函数会重新调用并且返回一个新的Virtual DOM,新旧Virtual DOM之间会进行比较，把diff之后的最小改动应用到Actural DOM中。<br>watch负责收集依赖，清除依赖和通知依赖。在大型复杂的组件树结构下由于采用了精确的依赖追踪系统，所以会避免组件的过度渲染。</p>
 
       
     </div>
@@ -427,7 +393,7 @@ fContext = {
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -440,8 +406,8 @@ fContext = {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/10/JavaScript之内存问题/" rel="next" title="JavaScript之内存问题">
-                <i class="fa fa-chevron-left"></i> JavaScript之内存问题
+              <a href="/2019/02/27/重新认识构造函数、原型和原型链/" rel="next" title="重新认识构造函数、原型和原型链">
+                <i class="fa fa-chevron-left"></i> 重新认识构造函数、原型和原型链
               </a>
             
           </div>
@@ -449,10 +415,6 @@ fContext = {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/08/javascript之理解this/" rel="prev" title="javascript之理解this">
-                javascript之理解this <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -586,7 +548,7 @@ fContext = {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从作用域链理解闭包"><span class="nav-text">从作用域链理解闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Actural-Dom-vs-Virtual-Dom"><span class="nav-text">Actural Dom vs Virtual Dom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Render函数原理"><span class="nav-text">Render函数原理</span></a></li></ol></div>
             
 
           </div>
