@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,">
+  <meta name="keywords" content="Vue,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="这段时间一直在做移动端的一些活动，活动嘛，当然主要还是通过微信来进行推广的。所以，免不了涉及到微信分享这一块。今天就来总结一下我在做微信分享这一块遇到的各种问题。 使用weixin-js-sdk实现自定义分享因为我用的是vue，所以直接引入weixin-js-sdk，通过config接口注入权限验证配置，分享失败时，可以将debug改为true,开启调试模式,调用的所有api的返回值会在客户端al">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化之JavaScript">
-<meta property="og:url" content="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/index.html">
+<meta property="og:title" content="记录微信分享遇到的一些问题">
+<meta property="og:url" content="http://yoursite.com/2019/05/25/记录微信分享遇到的一些问题/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
+<meta property="og:description" content="这段时间一直在做移动端的一些活动，活动嘛，当然主要还是通过微信来进行推广的。所以，免不了涉及到微信分享这一块。今天就来总结一下我在做微信分享这一块遇到的各种问题。 使用weixin-js-sdk实现自定义分享因为我用的是vue，所以直接引入weixin-js-sdk，通过config接口注入权限验证配置，分享失败时，可以将debug改为true,开启调试模式,调用的所有api的返回值会在客户端al">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T09:08:08.000Z">
+<meta property="og:updated_time" content="2019-08-25T11:19:34.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化之JavaScript">
-<meta name="twitter:description" content="性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。 加载和运行脚本位置将所有script标签放在页面底部，紧靠&amp;lt;/body&amp;gt;上方，以保证页面脚本运行之前完成解析。 defer &amp;amp; async常规script脚本浏览器会立即加载并执行，异步加载使用async 和 defer。二者区别在于async为无序，defer会异步根据脚本位置先后一次加载">
+<meta name="twitter:title" content="记录微信分享遇到的一些问题">
+<meta name="twitter:description" content="这段时间一直在做移动端的一些活动，活动嘛，当然主要还是通过微信来进行推广的。所以，免不了涉及到微信分享这一块。今天就来总结一下我在做微信分享这一块遇到的各种问题。 使用weixin-js-sdk实现自定义分享因为我用的是vue，所以直接引入weixin-js-sdk，通过config接口注入权限验证配置，分享失败时，可以将debug改为true,开启调试模式,调用的所有api的返回值会在客户端al">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/25/记录微信分享遇到的一些问题/">
 
 
 
 
 
-  <title>前端性能优化之JavaScript | vivien</title>
+  <title>记录微信分享遇到的一些问题 | vivien</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/前端性能优化之JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/记录微信分享遇到的一些问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vivien">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化之JavaScript</h1>
+          <h1 class="post-title" itemprop="name headline">记录微信分享遇到的一些问题</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T13:08:34+08:00">
-                2019-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T15:52:11+08:00">
+                2019-05-25
               </time>
             
 
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/移动开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动开发</span>
                   </a>
                 </span>
 
@@ -372,70 +372,10 @@
       
 
       
-        <p>性能优化也是前端开发者的一个必须理解和掌握的知识点，因为业务响应速度直接影响用户体验。</p>
-<h2 id="加载和运行"><a href="#加载和运行" class="headerlink" title="加载和运行"></a>加载和运行</h2><h3 id="脚本位置"><a href="#脚本位置" class="headerlink" title="脚本位置"></a>脚本位置</h3><p>将所有<code>script</code>标签放在页面底部，紧靠<code>&lt;/body&gt;</code>上方，以保证页面脚本运行之前完成解析。</p>
-<h3 id="defer-amp-async"><a href="#defer-amp-async" class="headerlink" title="defer &amp; async"></a>defer &amp; async</h3><p>常规<code>script</code>脚本浏览器会立即加载并执行，异步加载使用<code>async</code> 和 <code>defer</code>。二者区别在于<code>async</code>为无序，<code>defer</code>会异步根据脚本位置先后一次加载执行。</p>
-<h3 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h3><p>无论在何处启动下载，问价的下载和运行都不会阻塞其他页面处理过程。你可以将这些代码放在<code>head</code>部分而不会对其余部分的页面代码造成影响（除了用于下载文件的<code>http</code>连接）。</p>
+        <p>这段时间一直在做移动端的一些活动，活动嘛，当然主要还是通过微信来进行推广的。所以，免不了涉及到微信分享这一块。今天就来总结一下我在做微信分享这一块遇到的各种问题。</p>
+<h3 id="使用weixin-js-sdk实现自定义分享"><a href="#使用weixin-js-sdk实现自定义分享" class="headerlink" title="使用weixin-js-sdk实现自定义分享"></a>使用weixin-js-sdk实现自定义分享</h3><p>因为我用的是vue，所以直接引入weixin-js-sdk，通过config接口注入权限验证配置，分享失败时，可以将debug改为true,开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。如果分享失败可以看到是前端问题还是接口数据问题。其他一些具体操作可以在微信开发者工具中看到。地址：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115。" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115。</a></p>
 <a id="more"></a>
-<h2 id="数据访问"><a href="#数据访问" class="headerlink" title="数据访问"></a>数据访问</h2><p>数据存储在哪里，关系到代码运行期间数据被检索到的速度. 每一种数据存储位置都具有特定的读写操作负担。大多数情况下，对一个直接量和一个局部变量数据访问的性能差异是微不足道的。</p>
-<h3 id="在-JavaScript-中有四种基本的数据访问位置："><a href="#在-JavaScript-中有四种基本的数据访问位置：" class="headerlink" title="在 JavaScript 中有四种基本的数据访问位置："></a>在 JavaScript 中有四种基本的数据访问位置：</h3><ul>
-<li>直接量：直接量仅仅代表自己，而不存储于特定位置。 JavaScript 的直接量包括：字符串，数字，布尔值，对象，数组，函数，正则表达式，具有特殊意义的空值，以及未定义</li>
-<li>变量： 使用 var / let 关键字创建用于存储数据值</li>
-<li>数组项： 具有数字索引，存储一个 JavaScript 数组对象</li>
-<li>对象变量： 具有字符串索引，存储一个 JavaScript 对象<br>一般来说：<ol>
-<li>直接量与局部变量访问速度非常快，数组项和对象成员需要更长时间</li>
-<li>局部变量比域外变量访问速度快，因为它位于作用域链的第一个对象中。变量在作用域链的位置越深，访问所需要的时间越长。全局变量总是最慢的，因为它们总位于作用域链的最后一环。</li>
-<li>避免使用 with 表达式，因为它改变了运行期上下文的作用域链，谨慎对待 try-catch 表达式中 catch 子句，因为它具有同样的效果</li>
-<li>嵌套对象成员会造成重大性能影响，尽量少用</li>
-<li>属性在原型链中的位置越深，访问速度越慢</li>
-<li>将对象成员、数组项、域外变量存入局部变量能提高 js 代码的性能</li>
-</ol>
-
-</li>
-</ul>
-<h2 id="dom编程"><a href="#dom编程" class="headerlink" title="dom编程"></a>dom编程</h2><p>一般来说，对DOM操作代价昂贵，所以现在流行框架一般使用虚拟DOM这一概念。通常处理以下三点：</p>
-<ul>
-<li>访问和修改 DOM 元素</li>
-<li>修改 DOM 元素的样式，造成重绘和重新排版</li>
-<li>通过 DOM 事件处理用户响应<h3 id="DOM-访问和修改"><a href="#DOM-访问和修改" class="headerlink" title="DOM 访问和修改"></a>DOM 访问和修改</h3>访问或修改元素最坏的情况是使用循环执行此操作，特别是在 HTML 集合中使用循环。<p>
-<pre>
-function innerHtmlLoop () {
-    for(var i = 0; i < 100; i++) {
-        document.getElementById('box').innerHtml += "a";
-    }
-}
-</pre>
-</p>
-此函数在循环中更新页面内容。这段代码的问题是，在每次循环单元中都对 DOM 元素访问两次：一次
-读取 innerHTML 属性能容，另一次写入它。
-优化如下：
-<p>
-<pre>
-function innerHtmlLoop () {
-  var content = '';
-  for(var i = 0; i < 100; i++) {
-      content += "a";
-  }
-  document.getElementById('box').innerHtml += content;
-}
-</pre>
-</p>
-<b>你访问 DOM 越多，代码的执行速度就越慢。因此，一般经验法则是：轻轻地触摸 DOM，并尽量保持在 ECMAScript 范围内。</b>
-### 节点克隆
-使用 DOM 方法更新页面内容的另一个途径是克隆已有 `DOM` 元素，而不是创建新的——即使用 `element.cloneNode()`（`element` 是一个已存在的节点）代替 `document.createElement()`;
-### 布局和几何改变时发生重排版</li>
-<li>添加或删除可见的 DOM 元素</li>
-<li>元素位置改变</li>
-<li>元素尺寸改变（边距、填充、边框宽度、宽、高等属性）</li>
-<li>内容改变（文本或者图片被另一个不同尺寸的所替代）</li>
-<li>最初的页面渲染</li>
-<li>浏览器窗口尺寸改变<h3 id="减少重排次数"><a href="#减少重排次数" class="headerlink" title="减少重排次数"></a>减少重排次数</h3></li>
-<li>改变 display 属性，临时从文档上移除然后再恢复</li>
-<li>在文档之外创建并更新一个文档片段，然后将它进行附加</li>
-<li>先创建更新节点的副本，再操作副本，最后用副本更新老节点<!-- ## 算法与流程控制 -->
-<!-- ## 字符串和正则表达式 -->
-</li>
-</ul>
+<h3 id="ios中分享失败"><a href="#ios中分享失败" class="headerlink" title="ios中分享失败"></a>ios中分享失败</h3><p>之前在单独一个页面中做过微信分享，对这一块还是很有信心的。然而，测试跑过来跟我讲有问题，分享的页面链接不对，而且自定义标题和图片也都是错误的。我用我的andriod测试，嗯，再一次没问题呀。用了测试的ios测试，确实有问题。复制分享出去的链接看，发现虽然我页面跳转了，但是链接却依然是之前页面的链接，这是怎么回事？因为分享地址是后端重定向的，我还跑过去问了一下后端，结果被怼了。于是静下心来找问题。后来想起之前有同事跟我说过这个问题，好像ios不支持<code>this.$router.push()</code>。于是我尝试将<code>this.$router.push()</code>改为<code>location.href</code>,测试发现问题解决了。嗯，这段时间开发移动端发现，ios最容易出bug，很多东西可能就不支持。不过对于开发者来说，有bug还是要努力想办法解决。</p>
 
       
     </div>
@@ -453,7 +393,7 @@ function innerHtmlLoop () {
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -466,15 +406,15 @@ function innerHtmlLoop () {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/12/ios10白屏问题/" rel="next" title="ios10白屏问题">
+                <i class="fa fa-chevron-left"></i> ios10白屏问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/10/JavaScript之内存问题/" rel="prev" title="JavaScript之内存问题">
-                JavaScript之内存问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,7 +548,7 @@ function innerHtmlLoop () {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载和运行"><span class="nav-text">加载和运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本位置"><span class="nav-text">脚本位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer-amp-async"><span class="nav-text">defer &amp; async</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态脚本"><span class="nav-text">动态脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据访问"><span class="nav-text">数据访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-JavaScript-中有四种基本的数据访问位置："><span class="nav-text">在 JavaScript 中有四种基本的数据访问位置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dom编程"><span class="nav-text">dom编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-访问和修改"><span class="nav-text">DOM 访问和修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排次数"><span class="nav-text">减少重排次数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用weixin-js-sdk实现自定义分享"><span class="nav-text">使用weixin-js-sdk实现自定义分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ios中分享失败"><span class="nav-text">ios中分享失败</span></a></li></ol></div>
             
 
           </div>
