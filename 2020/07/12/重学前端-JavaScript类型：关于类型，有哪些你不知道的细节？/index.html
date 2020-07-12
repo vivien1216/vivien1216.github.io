@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="最近项目中涉及到使用canvas来绘制图片和文字，而且是多页。所以要求在一个页面绘制多个图片。一开始的想法就是使用for循环通过img.onload来将后台请求到的图片绘制在canvas中，测试过程中发现每次加载的图片顺序都不一样，这是怎么回事呢？">
+<meta name="description" content="JavaScript类型对于每个前端程序员来说，几乎都是最为熟悉的概念。首先，我们来看几个常见的问题：  为什么有的编程规范要求用 void 0 代替 undefined？ 字符串有最大长度吗？ 0.1 + 0.2 不是等于 0.3 么？为什么 JavaScript 里不是这样的？ ES6 新加入的 Symbol 是个什么东西？ 为什么给对象添加的方法能用在基本类型上？接下来，我们就带着这几个问题">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="for循环中嵌套异步请求问题">
-<meta property="og:url" content="http://yoursite.com/2019/06/18/for循环中嵌套异步请求问题/index.html">
+<meta property="og:title" content="重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？">
+<meta property="og:url" content="http://yoursite.com/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/index.html">
 <meta property="og:site_name" content="vivien">
-<meta property="og:description" content="最近项目中涉及到使用canvas来绘制图片和文字，而且是多页。所以要求在一个页面绘制多个图片。一开始的想法就是使用for循环通过img.onload来将后台请求到的图片绘制在canvas中，测试过程中发现每次加载的图片顺序都不一样，这是怎么回事呢？">
+<meta property="og:description" content="JavaScript类型对于每个前端程序员来说，几乎都是最为熟悉的概念。首先，我们来看几个常见的问题：  为什么有的编程规范要求用 void 0 代替 undefined？ 字符串有最大长度吗？ 0.1 + 0.2 不是等于 0.3 么？为什么 JavaScript 里不是这样的？ ES6 新加入的 Symbol 是个什么东西？ 为什么给对象添加的方法能用在基本类型上？接下来，我们就带着这几个问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-25T15:06:53.389Z">
+<meta property="og:image" content="http://yoursite.com/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/transform.jpg">
+<meta property="og:updated_time" content="2020-07-12T14:21:54.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="for循环中嵌套异步请求问题">
-<meta name="twitter:description" content="最近项目中涉及到使用canvas来绘制图片和文字，而且是多页。所以要求在一个页面绘制多个图片。一开始的想法就是使用for循环通过img.onload来将后台请求到的图片绘制在canvas中，测试过程中发现每次加载的图片顺序都不一样，这是怎么回事呢？">
+<meta name="twitter:title" content="重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？">
+<meta name="twitter:description" content="JavaScript类型对于每个前端程序员来说，几乎都是最为熟悉的概念。首先，我们来看几个常见的问题：  为什么有的编程规范要求用 void 0 代替 undefined？ 字符串有最大长度吗？ 0.1 + 0.2 不是等于 0.3 么？为什么 JavaScript 里不是这样的？ ES6 新加入的 Symbol 是个什么东西？ 为什么给对象添加的方法能用在基本类型上？接下来，我们就带着这几个问题">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/transform.jpg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/18/for循环中嵌套异步请求问题/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/">
 
 
 
 
 
-  <title>for循环中嵌套异步请求问题 | vivien</title>
+  <title>重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？ | vivien</title>
   
 
 
@@ -273,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/for循环中嵌套异步请求问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vivien">
@@ -290,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">for循环中嵌套异步请求问题</h1>
+          <h1 class="post-title" itemprop="name headline">重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？</h1>
         
 
         <div class="post-meta">
@@ -302,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T22:44:16+08:00">
-                2019-06-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T18:23:26+08:00">
+                2020-07-12
               </time>
             
 
@@ -325,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/重学前端/" itemprop="url" rel="index">
+                    <span itemprop="name">重学前端</span>
                   </a>
                 </span>
 
@@ -372,27 +374,42 @@
       
 
       
-        <p>最近项目中涉及到使用canvas来绘制图片和文字，而且是多页。所以要求在一个页面绘制多个图片。一开始的想法就是使用<code>for循环</code>通过<code>img.onload</code>来将后台请求到的图片绘制在canvas中，测试过程中发现每次加载的图片顺序都不一样，这是怎么回事呢？</p>
-<a id="more"></a>
-<p>原来，for循环中嵌套了异步请求会导致顺序错乱。<code>img.onload</code>本身就是一个异步加载函数，前面我又使用了<code>for循环</code>来对数据进行处理，所以导致每次加载的顺序都不一样。那么，面对这个问题，应该怎么处理呢？经过搜索一番，几乎大多数的建议都是放弃<code>for循环</code>而使用递归函数来进行处理。知道解决办法以后当然就很容易了。项目中的代码就暂时不贴了，用简单的例子来表示一下：<br><code><br>//for中嵌套异步时，执行顺序会混乱<br>function forTest(){<br>    for(var i=0; i<5; i++){<br>        (function(j){<br>            setTimeout(function(){<br>                console.log("第"+(j+1)+"次循环");<br>            }, Math.random() * 3000);<br>        }(i));<br>    }<br>}<br>forTest();<br>//第5次循环<br>//第2次循环<br>//第3次循环<br>//第4次循环<br>//第1次循环<br></5;></code></p>
-<code>
-//用递归代替for循环，可以保证正常执行顺序
-function recurTest(j, length){
-        setTimeout(function(){
-            console.log("第"+(j+1)+"次循环");
-            if(++j < length){
-                recurTest(j, length);
-            }
-        }, Math.random() * 3000);
-}
-recurTest(0, 5);
-//第1次循环
-//第2次循环
-//第3次循环
-//第4次循环
-//第5次循环
+        <p>JavaScript类型对于每个前端程序员来说，几乎都是最为熟悉的概念。首先，我们来看几个常见的问题：</p>
+<ul>
+<li>为什么有的编程规范要求用 void 0 代替 undefined？</li>
+<li>字符串有最大长度吗？</li>
+<li>0.1 + 0.2 不是等于 0.3 么？为什么 JavaScript 里不是这样的？</li>
+<li>ES6 新加入的 Symbol 是个什么东西？</li>
+<li>为什么给对象添加的方法能用在基本类型上？<br>接下来，我们就带着这几个问题来从运行时的角度去看 JavaScript 的类型系统。<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2>JavaScritp语言的每一个值都属于某一种数据类型。JavaScript语言规定了7中语言类型。分别是：undefined、null、number、string、object、boolean、symbol。symbol是es6中新加入的。<a id="more"></a>
+<h3 id="Undefined和Null"><a href="#Undefined和Null" class="headerlink" title="Undefined和Null"></a>Undefined和Null</h3>Undefined表示未定义，它的类型只有一个值，就是undefined。任何变量在赋值前是 Undefined 类型、值为 undefined，一般我们可以用全局变量 undefined（就是名为 undefined 的这个变量）来表达这个值，或者 void 运算来把任意一个表达式变成 undefined 值。<br>但是呢，因为 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是 JavaScript 语言公认的设计失误之一，所以，我们为了避免无意中被篡改，建议使用 void 0 来获取 undefined 值。<br>Undefined 跟 Null 有一定的表意差别，Null 表示的是：“定义了但是为空”。所以，在实际编程时，我们一般不会把变量赋值为 undefined，这样可以保证所有值为 undefined 的变量，都是从未赋值的自然状态。<br>Null 类型也只有一个值，就是 null，它的语义表示空值，与 undefined 不同，null 是 JavaScript 关键字，所以在任何代码中，你都可以放心用 null 关键字来获取 null 值。<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3>Boolean 类型有两个值， true 和 false，它用于表示逻辑意义上的真和假，同样有关键字 true 和 false 来表示两个值。<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3>String 用于表示文本数据。String 有最大长度是 2^53 - 1，这在一般开发中都是够用的，但是有趣的是，这个所谓最大长度，并不完全是你理解中的字符数。因为 String 的意义并非“字符串”，而是字符串的 UTF16 编码，我们字符串的操作 charAt、charCodeAt、length 等方法针对的都是 UTF16 编码。所以，字符串的最大长度，实际上是受字符串的编码长度影响的。<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3>JavaScript 中的 Number 类型有 18437736874454810627(即 2^64-2^53+3) 个值。<br>JavaScript 中的 Number 类型基本符合 IEEE 754-2008 规定的双精度浮点数规则，但是 JavaScript 为了表达几个额外的语言场景（比如不让除以 0 出错，而引入了无穷大的概念），规定了几个例外情况：</li>
+<li>NaN，占用了 9007199254740990，这原本是符合 IEEE 规则的数字；</li>
+<li>Infinity，无穷大；</li>
+<li>-Infinity，负无穷大。<br>另外，值得注意的是，JavaScript 中有 +0 和 -0，在加法类运算中它们没有区别，但是除法的场合则需要特别留意区分，“忘记检测除以 -0，而得到负无穷大”的情况经常会导致错误，而区分 +0 和 -0 的方式，正是检测 1/x 是 Infinity 还是 -Infinity。<br>根据双精度浮点数的定义，Number 类型中有效的整数范围是 -0x1fffffffffffff 至 0x1fffffffffffff，所以 Number 无法精确表示此范围外的整数。<br>同样根据浮点数的定义，非整数的 Number 类型无法用 ==（=== 也不行） 来比较，一段著名的代码，这也正是我们第三题的问题，为什么在 JavaScript 中，0.1+0.2 不能 =0.3：<code>
+console.log( 0.1 + 0.2 == 0.3);
 </code>
-从上面的简单例子可以看出，递归完美解决了for循环中嵌套了异步请求会导致顺序错乱。虽然一般在项目中习惯了使用`for循环`，但是还是不能盲目的去使用，任何一种方法都有其存在的价值，存在即合理。
+所以实际上，这里错误的不是结论，而是比较的方法，正确的比较方法是使用 JavaScript 提供的最小精度值：
+<code>
+console.log( Math.abs(0.1 + 0.2 - 0.3) <= number.epsilon); < code>
+检查等式左右两边差的绝对值是否小于最小精度，才是正确的比较浮点数的方法。这段代码结果就是 true 了。
+### Symbol
+Symbol 是 ES6 中引入的新类型，它是一切非字符串的对象 key 的集合，在 ES6 规范中，整个对象系统被用 Symbol 重塑。
+Symbol 可以具有字符串类型的描述，但是即使描述相同，Symbol 也不相等。
+我们创建 Symbol 的方式是使用全局的 Symbol 函数。例如：
+<code>
+var mySymbol = Symbol("my symbol");
+</code>
+
+</=></code></li>
+</ul>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Object 是 JavaScript 中最复杂的类型，也是 JavaScript 的核心机制之一。Object 表示对象的意思，它是一切有形和无形物体的总称。<br>在 JavaScript 中，对象的定义是“属性的集合”。属性分为数据属性和访问器属性，二者都是 key-value 结构，key 可以是字符串或者 Symbol 类型。<br>JavaScript 中的几个基本类型，都在对象类型中有一个“亲戚”。它们是：</p>
+<ul>
+<li>Number；</li>
+<li>String；</li>
+<li>Boolean；</li>
+<li>Symbol。<br>所以，我们必须认识到 3 与 new Number(3) 是完全不同的值，它们一个是 Number 类型， 一个是对象类型。<br>Number、String 和 Boolean，三个构造器是两用的，当跟 new 搭配时，它们产生对象，当直接调用时，它们表示强制类型转换。<br>Symbol 函数比较特殊，直接用 new 调用它会抛出错误，但它仍然是 Symbol 对象的构造器。</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>因为 JS 是弱类型语言，所以类型转换发生非常频繁，大部分我们熟悉的运算都会先进行类型转换。大部分类型转换符合人类的直觉，但是如果我们不去理解类型转换的严格定义，很容易造成一些代码中的判断失误。<br>很多实践中推荐禁止使用“ ==”，而要求程序员进行显式地类型转换后，用 === 比较。<br>其它运算，如加减乘除大于小于，也都会涉及类型转换。幸好的是，实际上大部分类型转换规则是非常简单的，如下表所示：<br><img src="/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/transform.jpg" alt="transform"></p>
+
       
     </div>
     
@@ -422,8 +439,8 @@ recurTest(0, 5);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/25/记录微信分享遇到的一些问题/" rel="next" title="记录微信分享遇到的一些问题">
-                <i class="fa fa-chevron-left"></i> 记录微信分享遇到的一些问题
+              <a href="/2019/06/18/for循环中嵌套异步请求问题/" rel="next" title="for循环中嵌套异步请求问题">
+                <i class="fa fa-chevron-left"></i> for循环中嵌套异步请求问题
               </a>
             
           </div>
@@ -431,10 +448,6 @@ recurTest(0, 5);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/12/重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？/" rel="prev" title="重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？">
-                重学前端-JavaScript类型：关于类型，有哪些你不知道的细节？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -486,8 +499,17 @@ recurTest(0, 5);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -549,6 +571,22 @@ recurTest(0, 5);
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型"><span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Undefined和Null"><span class="nav-text">Undefined和Null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean"><span class="nav-text">Boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-text">Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-text">Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-text">类型转换</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
