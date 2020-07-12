@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="vivien">
 <meta property="og:description" content="Symbol属于构造函数吗？constructor 属性是只读吗？prototype 、[[Prototype]] 和 __proto__ 的区别、什么是原型链?为了解开这些问题，让我们来好好回顾一下构造函数、原型和原型链这些知识点。 构造函数构造函数本身就是一个函数，与普通函数没有任何区别，不过为了规范一般将其首字母大写。构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/.com//1.png">
-<meta property="og:image" content="http://yoursite.com/.com//2.png">
-<meta property="og:image" content="http://yoursite.com/.com//3.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/27/重新认识构造函数、原型和原型链/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/27/重新认识构造函数、原型和原型链/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/27/重新认识构造函数、原型和原型链/3.jpg">
 <meta property="og:updated_time" content="2019-07-06T09:02:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重新认识构造函数、原型和原型链">
 <meta name="twitter:description" content="Symbol属于构造函数吗？constructor 属性是只读吗？prototype 、[[Prototype]] 和 __proto__ 的区别、什么是原型链?为了解开这些问题，让我们来好好回顾一下构造函数、原型和原型链这些知识点。 构造函数构造函数本身就是一个函数，与普通函数没有任何区别，不过为了规范一般将其首字母大写。构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直">
-<meta name="twitter:image" content="http://yoursite.com/.com//1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/27/重新认识构造函数、原型和原型链/1.png">
 
 
 
@@ -423,15 +423,15 @@ console.log( sym.constructor );
 <p>这里的  constructor 属性来自哪里？其实是 Symbol 原型上的，即 Symbol.prototype.constructor 返回创建实例原型的函数， 默认为 Symbol 函数。</p>
 <h4 id="constructor-值只读吗"><a href="#constructor-值只读吗" class="headerlink" title="constructor 值只读吗"></a>constructor 值只读吗</h4><p>一般来说，对于引用类型来说 constructor 属性值是可以修改的，但是对于基本类型来说是只读的。</p>
 <h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h4><p><code>JavaScript</code> 是一种基于原型的语言 (prototype-based language)，这个和 <code>Java</code> 等基于类的语言不一样。<br>每个对象拥有一个原型对象，对象以其原型为模板，从原型继承方法和属性，这些属性和方法定义在对象的构造器函数的 <code>prototype</code> 属性上，而非对象实例本身。</p>
-<h4 id="proto"><a href="#proto" class="headerlink" title="proto"></a><em>proto</em></h4><p>这是一个访问器属性（即 getter 函数和 setter 函数），通过它可以访问到对象的内部 [[Prototype]] (一个对象或  null )。<br>[[Prototype]] 是对象的一个内部属性，外部代码无法直接访问。<br><img src="/.com//1.png" alt="1.png"><br>如图，用 <code>p.__proto__</code> 获取对象的原型，<code>__proto__</code> 是每个实例上都有的属性，<code>prototype</code> 是构造函数的属性，这两个并不一样，但  <code>p.__proto__</code> 和 <code>Parent.prototype</code> 指向同一个对象。</p>
+<h4 id="proto"><a href="#proto" class="headerlink" title="proto"></a><em>proto</em></h4><p>这是一个访问器属性（即 getter 函数和 setter 函数），通过它可以访问到对象的内部 [[Prototype]] (一个对象或  null )。<br>[[Prototype]] 是对象的一个内部属性，外部代码无法直接访问。<br><img src="/2019/02/27/重新认识构造函数、原型和原型链/1.png" alt="1.png"><br>如图，用 <code>p.__proto__</code> 获取对象的原型，<code>__proto__</code> 是每个实例上都有的属性，<code>prototype</code> 是构造函数的属性，这两个并不一样，但  <code>p.__proto__</code> 和 <code>Parent.prototype</code> 指向同一个对象。</p>
 <pre>
 function Parent() {}
 var p = new Parent();
 p.__proto__ === Parent.prototype
 // true
 </pre>
-<p>所以构造函数  Parent、Parent.prototype 和 p 的关系如下图。<br><img src="/.com//2.png" alt="2.png"></p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>定义：每个对象拥有一个原型对象，通过 <code>__proto__</code> 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 <code>null</code>。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。<br>下图展示了原型链的运作机制。<br><img src="/.com//3.jpg" alt="3.jpg"></p>
+<p>所以构造函数  Parent、Parent.prototype 和 p 的关系如下图。<br><img src="/2019/02/27/重新认识构造函数、原型和原型链/2.png" alt="2.png"></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>定义：每个对象拥有一个原型对象，通过 <code>__proto__</code> 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 <code>null</code>。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。<br>下图展示了原型链的运作机制。<br><img src="/2019/02/27/重新认识构造函数、原型和原型链/3.jpg" alt="3.jpg"></p>
 <h3 id="instanceof-原理及实现"><a href="#instanceof-原理及实现" class="headerlink" title="instanceof 原理及实现"></a>instanceof 原理及实现</h3><p><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链上。</p>
 <pre>
 function C(){} 
