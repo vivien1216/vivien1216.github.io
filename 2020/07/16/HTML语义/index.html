@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTMl,">
+  <meta name="keywords" content="HTML,">
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="什么是语义类标签，使用它有什么好处？语义类标签是前端工作中经常会用到的一类标签，它们的特点是视觉表现上互相都差不多，主要的区别在于它们表现了不同的语义，比如大家经常会见到的section、nav、p，这些都是语义类标签。语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达。">
-<meta name="keywords" content="HTMl">
+<meta name="keywords" content="HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML语义">
 <meta property="og:url" content="http://yoursite.com/2020/07/16/HTML语义/index.html">
 <meta property="og:site_name" content="vivien">
 <meta property="og:description" content="什么是语义类标签，使用它有什么好处？语义类标签是前端工作中经常会用到的一类标签，它们的特点是视觉表现上互相都差不多，主要的区别在于它们表现了不同的语义，比如大家经常会见到的section、nav、p，这些都是语义类标签。语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T05:33:38.479Z">
+<meta property="og:updated_time" content="2020-07-16T05:44:57.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML语义">
 <meta name="twitter:description" content="什么是语义类标签，使用它有什么好处？语义类标签是前端工作中经常会用到的一类标签，它们的特点是视觉表现上互相都差不多，主要的区别在于它们表现了不同的语义，比如大家经常会见到的section、nav、p，这些都是语义类标签。语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达。">
@@ -384,12 +384,12 @@
 <pre>
 例如：
 
-<h1>HTML语义</h1>
-<p>balah balah balah balah</p>
-<h2>弱语义</h2>
-<p>balah balah</p>
-<h2>结构性元素</h2>
-<p>balah balah</p>
+&lt;h1&gt;HTML语义&lt;/h1&gt;
+&lt;p&gt;balah balah balah balah&lt;/p&gt;
+&lt;h2&gt;弱语义&lt;/h2&gt;
+&lt;p&gt;balah balah&lt;/p&gt;
+&lt;h2&gt;结构性元素&lt;/h2&gt;
+&lt;p&gt;balah balah&lt;/p&gt;
 ......
 </pre>
 <p>这段 HTML 几乎是平铺的元素，但是它的标题结构是：</p>
@@ -397,46 +397,51 @@
 <li>HTML 语义弱语义结构性元素</li>
 <li>-弱语义</li>
 <li>-结构性元素<br>h1-h6 是最基本的标题，它们表示了文章中不同层级的标题。有些时候，我们会有副标题，为了避免副标题产生额外的一个层级，我们使用 hgroup 标签。<br>我们来看下有 / 无 hgroup 的对比：<pre>
-<h1>JavaScript对象</h1>
-<h2>我们需要模拟类吗？</h2>
-<p>balah balah</p>
+&lt;h1&gt;JavaScript对象&lt;/h1&gt;
+&lt;h2&gt;我们需要模拟类吗？&lt;/h2&gt;
+&lt;p&gt;balah balah&lt;/p&gt;
 ......
 </pre>
-此段生成以下标题结构：</li>
+
+</li>
+</ul>
+<p>此段生成以下标题结构：</p>
+<ul>
 <li>JavaScript 对象</li>
 <li>-我们需要模拟类吗？</li>
-<li>-…<pre>
-
-</pre></li>
+<li>-…</li>
 </ul>
-<hgroup>
-<h1>JavaScript对象</h1>
-<h2>我们需要模拟类吗？</h2>
-</hgroup>
-<p>balah balah</p>
-......
-
-这一段生成以下标题结构：
-- JavaScript 对象——我们需要模拟类吗？
-- -…
-我们通过两个效果的对比就可以知道，在 hgroup 中的 h1-h6 被视为同一标题的不同组成部分。
-从 HTML 5 开始，我们有了 section 标签，这个标签可不仅仅是一个“有语义的 div”，它会改变 h1-h6 的语义。section 的嵌套会使得其中的 h1-h6 下降一级，因此，在 HTML5 以后，我们只需要 section 和 h1 就足以形成文档的树形结构：
 <pre>
-<section>
-    <h1>HTML语义</h1>
-    <p>balah balah balah balah</p>
-    <section>
-        <h1>弱语义</h1>
-        <p>balah balah</p>
-    </section>
-    <section>
-        <h1>结构性元素</h1>
-        <p>balah balah</p> 
-    </section>
+
+&lt;hgroup&gt;
+&lt;h1&gt;JavaScript对象&lt;/h1&gt;
+&lt;h2&gt;我们需要模拟类吗？&lt;/h2&gt;
+&lt;/hgroup&gt;
+&lt;p&gt;balah balah&lt;/p&gt;
 ......
-</section>
 </pre>
 
+<p>这一段生成以下标题结构：</p>
+<ul>
+<li>JavaScript 对象——我们需要模拟类吗？</li>
+<li>-…<br>我们通过两个效果的对比就可以知道，在 hgroup 中的 h1-h6 被视为同一标题的不同组成部分。<br>从 HTML 5 开始，我们有了 section 标签，这个标签可不仅仅是一个“有语义的 div”，它会改变 h1-h6 的语义。section 的嵌套会使得其中的 h1-h6 下降一级，因此，在 HTML5 以后，我们只需要 section 和 h1 就足以形成文档的树形结构：<pre>
+&lt;section&gt;
+  &lt;h1&gt;HTML语义&lt;/h1&gt;
+  &lt;p&gt;balah balah balah balah&lt;/p&gt;
+  &lt;section&gt;
+      &lt;h1&gt;弱语义&lt;/h1&gt;
+      &lt;p&gt;balah balah&lt;/p&gt;
+  &lt;/section&gt;
+  &lt;section&gt;
+      &lt;h1&gt;结构性元素&lt;/h1&gt;
+      &lt;p&gt;balah balah&lt;/p&gt; 
+  &lt;/section&gt;
+......
+&lt;/section&gt;
+</pre>
+
+</li>
+</ul>
 <p>这段代码同样会形成前面例子的标题结构：</p>
 <ul>
 <li>HTML 语义</li>
@@ -463,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTMl/" rel="tag"># HTMl</a>
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
           
         </div>
       
@@ -618,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是语义类标签，使用它有什么好处？"><span class="nav-text">什么是语义类标签，使用它有什么好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为自然语言延伸的语义类标签"><span class="nav-text">作为自然语言延伸的语义类标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为标题摘要的语义类标签"><span class="nav-text">作为标题摘要的语义类标签</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">HTML语义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">弱语义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">结构性元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">JavaScript对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">我们需要模拟类吗？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">JavaScript对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">我们需要模拟类吗？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">HTML语义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">弱语义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">结构性元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为整体结构的语义类标签"><span class="nav-text">作为整体结构的语义类标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是语义类标签，使用它有什么好处？"><span class="nav-text">什么是语义类标签，使用它有什么好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为自然语言延伸的语义类标签"><span class="nav-text">作为自然语言延伸的语义类标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为标题摘要的语义类标签"><span class="nav-text">作为标题摘要的语义类标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为整体结构的语义类标签"><span class="nav-text">作为整体结构的语义类标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
